@@ -1,0 +1,13 @@
+.not_found{
+    margin-top: 75px;
+padding: 200px 0 130px;
+}
+.not_found .container{
+display: grid;
+place-items: center;
+gap: 2rem;
+}
+.not_found .container h2,
+    .not_found .container a{
+    max-width: 100%;
+}

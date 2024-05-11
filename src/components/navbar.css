@@ -1,0 +1,124 @@
+nav {
+  background-color: var(--main-color);
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8888;
+}
+.nav_container {
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.nav_container .logo img {
+  width: 110px;
+}
+.nav_container .nav_links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+}
+.nav_container .nav_links a {
+  color: var(--gray-color-100);
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  display: block;
+  padding: 24px 10px;
+  font-size: 14px;
+  transition: var(main-transition);
+  position: relative;
+}
+
+.nav_container .nav_links li:hover a {
+  color: var(--secondary-color);
+  border-top-color: var(--secondary-color);
+}
+.nav_container .nav_toggle-btn {
+  display: none;
+}
+.active_link::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: -1;
+  background-color: var(--main-color);
+  transform: rotate(-45deg);
+  top: 83%;
+  left: calc(50% - 9px);
+}
+/* Small screen  */
+@media (max-width: 767px) {
+  .nav_container .nav_links {
+    position: absolute;
+    flex-direction: column;
+    padding: 0px;
+    top: 100%;
+    right: 2rem;
+    gap: 0;
+    text-align: center;
+    perspective: 400px;
+  }
+  .show_nav {
+    display: block !important;
+  }
+  .hide_nav {
+    display: none !important;
+  }
+  .nav_container .nav_links li {
+    box-shadow: -2em 2rem 5rem rgba(0, 0, 0, 0.4);
+    width: 100%;
+    transform-origin: top;
+    transform: rotateX(90deg);
+    background-color: var(--main-color);
+    opacity: 0;
+    animation: nav_animation 0.6s ease forwards;
+  }
+  .nav_container .nav_links li:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .nav_container .nav_links li:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  .nav_container .nav_links li:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+  .nav_container .nav_links li:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+  .nav_container .nav_links li:nth-child(6) {
+    animation-delay: 1s;
+  }
+
+  .nav_container .nav_links a {
+    border-top: none;
+    background-color: var(--main-color);
+
+    padding: 10px 60px;
+  }
+  .active_link::after {
+    display: none;
+  }
+  .nav_container .nav_toggle-btn {
+    display: block;
+    background-color: var(--main-color);
+    color: var(--gray-color-100);
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2rem;
+  }
+  @keyframes nav_animation {
+    to {
+      transform: rotateX(0);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+const gellerylength=15;
+const images = []
+for(let i =1,i<=gellerylength,i++){
+    images.push(require(`../../images/gallery${i}`))))
+}
